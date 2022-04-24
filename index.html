@@ -18,8 +18,29 @@
     
     <main>
       <br> <br>
+      <form id="form">
+        <label for="fname"> Full name: </label>
+        <input type="text" id="fname" required><br><br>
+        <label for="departments"> Department: </label>
+        <select id="departments">
+        <option value="Administration"> Administration </option>
+        <option value="Marketing"> Marketing </option>
+        <option value="Development"> Development </option>
+        <option value="Finance"> Finance </option>
+        </select><br><br>
+        <label for="level"> Level: </label>
+        <select id="level">
+        <option value="Junior"> Junior </option>
+        <option value="Mid-Senior"> Mid-Senior </option>
+        <option value="Senior"> Senior </option>
+        </select><br><br>
+        <label for="img"> Image: </label>
+        <input type="text" id="image" required><br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+      <div class="card" id="div"></div>
       <script src="app.js"></script>
-    <br> <br> <br> <br> <br> <br> 
     </main> 
     
     <footer>
