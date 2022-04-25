@@ -8,19 +8,19 @@ function Employee(employeeId,fullName,department,level,image){
          this.fullName = fullName;
          this.department = department;
          this.level = level;
-         this.image = image;
+         this.image = image
          arr.push(this);  
         }
 
 Employee.prototype.randomSalary = function (){
     let min, max;
-    if (this.level = "Junior"){
+    if (this.level == "Junior"){
         min = 500;
         max = 1000; 
-    }else  if (this.level = "Mid-Senior"){
+    }else  if (this.level == "Mid-Senior"){
         min = 1000;
         max = 1500;
-    }else  if (this.level = "Senior"){
+    }else  if (this.level == "Senior"){
         min = 1500;
         max = 2000;
     }
@@ -52,7 +52,6 @@ Employee.prototype.randomSalary = function (){
    smalldiv.style.color = 'wheat';
    div.appendChild(smalldiv);
   
-
 }
 
 let Ghazi = new Employee(1000, "Ghazi Samer", "Adminstration", "Senior","Ghazi.jpg");
@@ -66,14 +65,14 @@ let Hadi = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior", "Hadi.jpg")
 console.log(arr);
 
 for (let i = 0; i < arr.length; i++){
-     arr[i].randomSalary();
-    arr[i].render();
+     arr[i].randomSalary();     
+     arr[i].render();
+     
 }
 
     function uniqueId(){
     return Math.floor(1000 + Math.random() * 9000);
 }
-
 
 let form = document.getElementById('form');
 form.addEventListener("submit" , handleSubmit);
