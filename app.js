@@ -8,19 +8,19 @@ function Employee(employeeId,fullName,department,level,image){
          this.fullName = fullName;
          this.department = department;
          this.level = level;
-         this.image = image;
+         this.image = image
          arr.push(this);  
         }
 
 Employee.prototype.randomSalary = function (){
     let min, max;
-    if (this.level = "Junior"){
+    if (this.level == "Junior"){
         min = 500;
         max = 1000; 
-    }else  if (this.level = "Mid-Senior"){
+    }else  if (this.level == "Mid-Senior"){
         min = 1000;
         max = 1500;
-    }else  if (this.level = "Senior"){
+    }else  if (this.level == "Senior"){
         min = 1500;
         max = 2000;
     }
@@ -52,13 +52,12 @@ Employee.prototype.randomSalary = function (){
    smalldiv.style.color = 'wheat';
    div.appendChild(smalldiv);
   
-
 }
 
-let Ghazi = new Employee(1000, "Ghazi Samer", "Adminstration", "Senior","Ghazi.jpg");
+let Ghazi = new Employee(1000, "Ghazi Samer", "Administration", "Senior","Ghazi.jpg");
 let Lana = new Employee(1001, "Lana Ali", "Finance", "Senior", "Lana.jpg");
 let Tamara = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior", "Tamara.jpg");
-let Safi = new Employee(1003, "Safi Walid", "Adminstration", "Mid-Senior", "Safi.jpg");
+let Safi = new Employee(1003, "Safi Walid", "Administration", "Mid-Senior", "Safi.jpg");
 let Omar = new Employee(1004, "Omar Zaid", "Development", "Senior", "Omar.jpg");
 let Rana = new Employee(1005, "Rana Saleh", "Development", "Junior", "Rana.jpg");
 let Hadi = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior", "Hadi.jpg");
@@ -66,14 +65,14 @@ let Hadi = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior", "Hadi.jpg")
 console.log(arr);
 
 for (let i = 0; i < arr.length; i++){
-     arr[i].randomSalary();
-    arr[i].render();
+     arr[i].randomSalary();     
+     arr[i].render();
+     
 }
 
     function uniqueId(){
     return Math.floor(1000 + Math.random() * 9000);
 }
-
 
 let form = document.getElementById('form');
 form.addEventListener("submit" , handleSubmit);
@@ -89,11 +88,24 @@ function handleSubmit(event){
     let newEmployee = new Employee (newId, full, department, level, img);
     newEmployee.randomSalary(); 
     newEmployee.render();
-}
-// let imgg = document.createElement('img');
-// imgg.setAttribute("src", "Ghazi.jpg");
-// div.appendChild(imgg);
-// imgg.style.width="100px";
-// let header4 = document.createElement('h4');
-// header4.textContent = ' Name: Ghazi Samer, Department: Administrator, Level: Senior ';
-// div.appendChild(header4);
+    saveData(arr);
+    
+};
+
+function saveData(data){
+    let strgObj = JSON.stringify(data);
+    localStorage.setItem("employees", strgObj);
+
+};
+
+function getData(){
+    let retrievedData = localStorage.getItem("employees");
+    let arrayData = JSON.parse(retrievedData);
+    for (let a = 0; a < arrayData.length; a++){
+       var element = new Employee(arrayData[a].employeeId,arrayData[a].fullName,
+       arrayData[a].department,arrayData[a].level,arrayData[a].image); 
+    }    
+    element.render();
+};
+
+getData();
