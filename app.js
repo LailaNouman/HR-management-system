@@ -105,8 +105,8 @@ function getData(){
     for (let a = 0; a < arrayData.length; a++){
        var element = new Employee(arrayData[a].employeeId,arrayData[a].fullName,
        arrayData[a].department,arrayData[a].level,arrayData[a].image); 
-    }    
     element.render();
+    }
 }
 };
 
