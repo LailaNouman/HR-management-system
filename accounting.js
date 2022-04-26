@@ -78,7 +78,7 @@ function renderTable(){
     tfoot1.appendChild(tdEL5);
     tdEL2.textContent = "Total";
     tdEL3.textContent = totnum;
-    tdEL4.textContent = totavg;
+    tdEL4.textContent = totavg / totnum;
     tdEL5.textContent = totsal;
     
 }

@@ -54,13 +54,13 @@ Employee.prototype.randomSalary = function (){
   
 }
 
-let Ghazi = new Employee(1000, "Ghazi Samer", "Administration", "Senior","Ghazi.jpg");
-let Lana = new Employee(1001, "Lana Ali", "Finance", "Senior", "Lana.jpg");
-let Tamara = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior", "Tamara.jpg");
-let Safi = new Employee(1003, "Safi Walid", "Administration", "Mid-Senior", "Safi.jpg");
-let Omar = new Employee(1004, "Omar Zaid", "Development", "Senior", "Omar.jpg");
-let Rana = new Employee(1005, "Rana Saleh", "Development", "Junior", "Rana.jpg");
-let Hadi = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior", "Hadi.jpg");
+// let Ghazi = new Employee(1000, "Ghazi Samer", "Administration", "Senior","Ghazi.jpg");
+// let Lana = new Employee(1001, "Lana Ali", "Finance", "Senior", "Lana.jpg");
+// let Tamara = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior", "Tamara.jpg");
+// let Safi = new Employee(1003, "Safi Walid", "Administration", "Mid-Senior", "Safi.jpg");
+// let Omar = new Employee(1004, "Omar Zaid", "Development", "Senior", "Omar.jpg");
+// let Rana = new Employee(1005, "Rana Saleh", "Development", "Junior", "Rana.jpg");
+// let Hadi = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior", "Hadi.jpg");
 
 console.log(arr);
 
@@ -94,18 +94,20 @@ function handleSubmit(event){
 
 function saveData(data){
     let strgObj = JSON.stringify(data);
-    localStorage.setItem("employees", strgObj);
+    localStorage.setItem("employees", strgObj); 
 
 };
 
 function getData(){
     let retrievedData = localStorage.getItem("employees");
     let arrayData = JSON.parse(retrievedData);
+    if (arrayData != null){
     for (let a = 0; a < arrayData.length; a++){
        var element = new Employee(arrayData[a].employeeId,arrayData[a].fullName,
        arrayData[a].department,arrayData[a].level,arrayData[a].image); 
-    }    
     element.render();
+    }
+}
 };
 
 getData();
